@@ -35,16 +35,15 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-        console.log(navigator.camera);
-
+        // console.log(navigator.camera);
+        //
         navigator.camera.getPicture(onSuccess, onFail, { quality: 25,
             destinationType: Camera.DestinationType.DATA_URL
         });
 
         function onSuccess(imageData) {
-
-          var image = document.getElementById('theImage');
-          image.src = "data:image/jpeg;base64," + imageData;
+          // $('#theImage').attr("src", "data:image/jpeg;base64," + imageData);
+          $('#smallerImg').css("background-image", "url(data:image/jpeg;base64," + imageData + ")");
         }
 
         function onFail(message) {
